@@ -1,0 +1,21 @@
+@Library('jenkins-lib-develop')_
+
+pipeline {
+    agent any
+    stages {
+      stage('Detect Changeset') {
+        steps{
+          script{
+            echo "Inside stage"
+            def changeLogSets = currentBuild.changeSets
+            def codecheckList =[ "test1", "test2", "test3"]
+            def codeignoreList=["test1/temp.txt"]
+            def changedModules = []
+            changedModules = detectChangeSet(codecheckList,codeignoreList);
+            echo "Modules Changed -- "
+            println changedModules
+          }
+        }
+      }
+    }
+}
