@@ -10,6 +10,9 @@ pipeline {
             def codeignoreList=["test1/temp.txt"]
             def changedModules = []        
             echo "test test"
+            sh '''
+                env
+            '''
           }
           
         }
