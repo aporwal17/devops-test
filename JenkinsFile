@@ -10,7 +10,7 @@ pipeline {
             def codeignoreList=["test1/temp.txt"]
             def changedModules = []        
             echo "test test"
-            echo sh(returnStdout: true, script: 'env')
+            sh 'printenv'
           }
           
         }
